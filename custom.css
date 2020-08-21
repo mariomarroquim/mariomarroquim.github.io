@@ -1,0 +1,40 @@
+body {
+  padding: 30px;
+  color: #ffffff;
+
+  /* redit: https://uigradients.com/#KyeMeh */
+  background-image: url('img/KyeMeh.jpg');
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
+img {
+  width: 120px;
+}
+
+hr {
+  margin-bottom: 20px;
+}
+
+ul {
+  padding-left: 2px;
+  list-style-type: none;
+}
+
+ul li {
+  padding: 0px 0px 10px 0px;
+}
+
+ul li a {
+  color: #ffffff;
+}
+
+ul li a:active, ul li a:hover {
+  color: #a6dae2;
+  text-decoration: none;
+}
+
+ul li a span {
+  display: inline-block;
+  width: 24px;
+}
