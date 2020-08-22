@@ -1,3 +1,7 @@
+html {
+  min-height: 100%;
+}
+
 body {
   padding: 26px 0px 26px 0px;
   color: #ffffff;
@@ -6,10 +10,12 @@ body {
   background: -moz-radial-gradient(bottom right, #3C16D1, #1FB697);
   background: radial-gradient(to top left, #3C16D1, #1FB697);
   background-repeat: no-repeat;
+  background-size: cover;
 }
 
-h1 {
+.h1, h1 {
   font-family: 'Bebas Neue', cursive;
+  font-size: 2.2rem;
 }
 
 hr {
