@@ -9,7 +9,7 @@ body {
   background: -moz-radial-gradient(bottom right, #3C16D1, #1FB697);
   background: radial-gradient(to top left, #3C16D1, #1FB697);
   background-repeat: repeat;
-  background-size: auto 100%;
+  background-size: auto 200%;
 }
 
 img {
@@ -22,6 +22,8 @@ img {
 }
 
 ul {
+  margin-top: 30px;
+  margin-bottom: 30px;
   padding: 0px;
   list-style-type: none;
 }
@@ -47,6 +49,10 @@ ul li a span {
 
 .main-content {
   min-height: 82vh;
+}
+
+.main-content .spacer {
+  height: 10px;
 }
 
 .main-content .btn {
