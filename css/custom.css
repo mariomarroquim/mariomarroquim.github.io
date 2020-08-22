@@ -38,3 +38,7 @@ ul li a span {
   display: inline-block;
   width: 24px;
 }
+
+.btn {
+  width: 120px;
+}
