@@ -3,23 +3,22 @@ html {
 }
 
 body {
-  padding: 26px 0px 26px 0px;
   color: #ffffff;
   background: #3C16D1;
   background: -webkit-radial-gradient(bottom right, #3C16D1, #1FB697);
   background: -moz-radial-gradient(bottom right, #3C16D1, #1FB697);
   background: radial-gradient(to top left, #3C16D1, #1FB697);
-  background-repeat: no-repeat;
-  background-size: cover;
+  background-repeat: repeat;
+  background-size: auto 100%;
+}
+
+img {
+  height: 140px;
 }
 
 .h1, h1 {
   font-family: 'Bebas Neue', cursive;
   font-size: 2.2rem;
-}
-
-hr {
-  margin-bottom: 20px;
 }
 
 ul {
@@ -42,9 +41,14 @@ ul li a:active, ul li a:hover {
 
 ul li a span {
   display: inline-block;
-  width: 24px;
+  width: 18px;
+  margin-right: 2px;
 }
 
-.btn {
+.main-content {
+  min-height: 82vh;
+}
+
+.main-content .btn {
   width: 120px;
 }
