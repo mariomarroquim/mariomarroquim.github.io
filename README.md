@@ -1,6 +1,6 @@
 # Personal website
 
-This is my personal website, simplified for the mobile era. Much like the Linktree ones. Pushing to `master` deploys it. There is no build step, package manager, linter, or test suite. It's plain static HTML and CSS.
+This is a personal website, simplified for the mobile era. Much like the Linktree ones. Pushing to `master` deploys it. There is no build step, package manager, linter, or test suite. It's plain static HTML and CSS.
 
 ## Instructions
 

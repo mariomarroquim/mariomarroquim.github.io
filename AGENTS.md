@@ -4,25 +4,7 @@ A single-page personal website (Linktree-style profile card) served by GitHub Pa
 
 ## Project details
 
-- `index.html`: the whole page: avatar, name, title, social links list, and contact buttons (WhatsApp, email), plus a footer copyright line. The `<head>` holds the SEO metadata: description, robots, canonical URL, Open Graph, Twitter card, and JSON-LD `Person` data. These use absolute `https://mariomarroquim.github.io/` URLs, so keep them in sync if the title, description, avatar, or social links change.
-- `css/custom.css`: all custom styling. It overrides Bootstrap and covers:
-  - the gradient background, with drifting color blobs in the fixed `.backdrop` layer
-  - the Bebas Neue heading font
-  - the rotating avatar ring
-  - the staggered `.reveal` entrance (each element's `--i` sets its order)
-  - the frosted-glass link cards and raised 3D contact buttons
-
-  Animations only move or fade elements (`transform` and `opacity`), which keeps them smooth on phones. Hover effects only apply on devices with a mouse or trackpad (`@media (hover: hover)`). All motion is turned off under `prefers-reduced-motion`.
-- `img/avatar.jpg`: the profile photo, and the source of the icons in `img/` (`favicon-32.png`, `apple-touch-icon.png` at 180px for iOS, `icon-192.png` and `icon-512.png` for Android). If the avatar changes, regenerate them at those sizes.
-- `img/qrcode.svg`: a static QR code for `https://mariomarroquim.github.io/`, shown below the contact buttons. It was generated with the Python `segno` library (error correction M, 4-module quiet zone). Regenerate it if the site URL changes.
-- `manifest.webmanifest`: the web app manifest for Android "Add to Home screen" (name, colors, icons).
-- Mobile: the viewport uses `viewport-fit=cover`, so `body` pads itself with `env(safe-area-inset-*)` to stay clear of notches. Links and buttons are at least 44px tall for touch.
-- `robots.txt` and `sitemap.xml`: let all crawlers in and list the single page URL. Update the sitemap's `<lastmod>` date when the page content changes.
-
-External dependencies come from CDNs, with nothing vendored:
-- Bootstrap 5.3.8 CSS from jsDelivr (with an SRI `integrity` hash, so if you change the version you must update the hash too)
-- Google Fonts (Bebas Neue)
-- Font Awesome kit script (icons use `fab fa-*` / `far fa-*` classes)
+This is a personal website, simplified for the mobile era. Much like the Linktree ones. Pushing to `master` deploys it. There is no build step, package manager, linter, or test suite. It's plain static HTML and CSS.
 
 ## Conventions
 
@@ -31,5 +13,5 @@ External dependencies come from CDNs, with nothing vendored:
 - Before commiting, update both of these in `index.html`:
   - **Copyright year:** the year in the footer (`&copy; YYYY Mário Marroquim`) must be the current year.
   - **Deploy version:** the `<meta name="version">` tag, in the format `YYYY.MM.DD.N`, where `N` counts that day's commit starting at 1.
-  - **Asset version:**: Add or update `?v=` (query string) with the updated deploy value at any local asset (CSS, image, etc) reference.
+  - **Asset version:**: Add or update `?v=` (query string) with the updated deploy version on any local asset (CSS, image, etc) reference.
 - This project only uses the `master` branch; commit and push directly to it.
