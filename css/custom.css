@@ -1,3 +1,16 @@
+/* ---------- Base ---------- */
+
+:root {
+  --violet: #3C16D1;
+  --teal: #1FB697;
+  --aqua: #a6dae2;
+  --glass: rgba(255, 255, 255, .12);
+  --glass-hover: rgba(255, 255, 255, .2);
+  --glass-border: rgba(255, 255, 255, .24);
+  --ease-out: cubic-bezier(.2, .8, .2, 1);
+  --ease-spring: cubic-bezier(.34, 1.56, .64, 1);
+}
+
 html {
   min-height: 100%;
   -webkit-text-size-adjust: 100%;
@@ -11,55 +24,196 @@ body {
   padding-bottom: env(safe-area-inset-bottom);
   padding-left: env(safe-area-inset-left);
   color: #ffffff;
-  background: #3C16D1;
-  background: -webkit-radial-gradient(bottom right, #3C16D1, #1FB697);
-  background: radial-gradient(at bottom right, #3C16D1, #1FB697);
+  background: var(--violet);
+  background: -webkit-radial-gradient(bottom right, var(--violet), var(--teal));
+  background: radial-gradient(at bottom right, var(--violet), var(--teal));
   background-repeat: repeat;
   background-size: auto 200%;
   -webkit-tap-highlight-color: transparent;
 }
 
+/* ---------- Animated backdrop ---------- */
+
+/* Fixed layer of soft, drifting color blobs behind the content.
+   Only transform is animated, so it stays cheap on phones. */
+.backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.blob {
+  position: absolute;
+  width: 70vmax;
+  height: 70vmax;
+  border-radius: 50%;
+  opacity: .55;
+  will-change: transform;
+}
+
+.blob-1 {
+  top: -30vmax;
+  left: -25vmax;
+  background: radial-gradient(circle, rgba(31, 182, 151, .9), rgba(31, 182, 151, 0) 65%);
+  animation: drift-1 22s ease-in-out infinite alternate;
+}
+
+.blob-2 {
+  right: -30vmax;
+  bottom: -35vmax;
+  background: radial-gradient(circle, rgba(92, 46, 255, .9), rgba(92, 46, 255, 0) 65%);
+  animation: drift-2 26s ease-in-out infinite alternate;
+}
+
+.blob-3 {
+  top: 20%;
+  left: 30%;
+  width: 45vmax;
+  height: 45vmax;
+  background: radial-gradient(circle, rgba(166, 218, 226, .55), rgba(166, 218, 226, 0) 65%);
+  animation: drift-3 30s ease-in-out infinite alternate;
+}
+
+@keyframes drift-1 {
+  to { transform: translate(25vw, 30vh) scale(1.15); }
+}
+
+@keyframes drift-2 {
+  to { transform: translate(-30vw, -25vh) scale(1.2); }
+}
+
+@keyframes drift-3 {
+  0%   { transform: translate(0, 0) scale(1); }
+  50%  { transform: translate(-25vw, 15vh) scale(1.3); }
+  100% { transform: translate(15vw, -20vh) scale(.9); }
+}
+
+/* ---------- Entrance ---------- */
+
+/* Each .reveal element rises in after the previous one (--i is its order). */
+.reveal {
+  opacity: 0;
+  animation: rise .8s var(--ease-out) forwards;
+  animation-delay: calc(var(--i, 0) * 90ms + 100ms);
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(18px) scale(.98);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* ---------- Avatar ---------- */
+
+.avatar-ring {
+  position: relative;
+  display: inline-block;
+  padding: 5px;
+  border-radius: 50%;
+}
+
+/* Rotating gradient ring with a soft glow */
+.avatar-ring::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: conic-gradient(from 0deg, var(--teal), var(--aqua), #8f6bff, var(--teal));
+  box-shadow: 0 0 28px rgba(166, 218, 226, .45);
+  animation: spin 8s linear infinite;
+}
+
 .avatar {
+  position: relative;
+  display: block;
   width: 140px;
   height: 140px;
   object-fit: cover;
+  border: 4px solid rgba(255, 255, 255, .9);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, .3);
+  transition: transform .5s var(--ease-spring);
 }
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ---------- Typography ---------- */
 
 h1 {
   font-family: 'Bebas Neue', cursive;
   font-size: 2.2rem;
+  letter-spacing: .03em;
+  text-shadow: 0 2px 0 rgba(0, 0, 0, .12), 0 8px 24px rgba(0, 0, 0, .25);
 }
 
+.subtitle {
+  letter-spacing: .04em;
+  opacity: .92;
+}
+
+/* ---------- Profile links (glass cards) ---------- */
+
 ul {
-  margin: 18px 0px 20px 0px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  margin: 22px 0px 24px 0px;
   padding: 0px;
   list-style-type: none;
 }
 
-ul li a {
-  /* At least 44px tall, the minimum comfortable touch target */
-  display: inline-block;
-  padding: 10px 0px;
-  color: #ffffff;
-  text-decoration: none;
+ul li {
+  width: 100%;
+  max-width: 300px;
 }
 
-ul li a:active, ul li a:hover {
-  color: #a6dae2;
+ul li a {
+  /* At least 44px tall, the minimum comfortable touch target */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 48px;
+  padding: 12px 18px;
+  color: #ffffff;
   text-decoration: none;
+  background: var(--glass);
+  border: 1px solid var(--glass-border);
+  border-radius: 14px;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, .25),
+    0 6px 16px rgba(0, 0, 0, .14);
+  transition:
+    transform .35s var(--ease-spring),
+    background-color .25s ease,
+    box-shadow .35s var(--ease-out),
+    color .25s ease;
 }
 
 ul li a span {
   display: inline-block;
   width: 18px;
-  margin-right: 2px;
+  transition: transform .35s var(--ease-spring);
 }
 
-.main-content {
-  min-height: 82vh;
-  /* Use the small viewport height so mobile browser bars don't push content down */
-  min-height: 82svh;
+ul li a:active {
+  transform: scale(.97);
+  background: var(--glass-hover);
 }
+
+/* ---------- Contact buttons (raised 3D) ---------- */
 
 .main-content .contact {
   display: flex;
@@ -68,33 +222,137 @@ ul li a span {
   gap: 12px;
 }
 
-.main-content .btn {
+.main-content .contact .btn {
+  position: relative;
   min-width: 120px;
-  white-space: nowrap;
   padding-top: 10px;
   padding-bottom: 10px;
+  white-space: nowrap;
+  color: #ffffff;
+  font-weight: 600;
+  border: 0;
+  border-radius: 12px;
+  background-color: #17a2b8;
+  background-image: linear-gradient(180deg, #22c3d9 0%, #148ea2 100%);
+  text-shadow: 0 1px 1px rgba(0, 0, 0, .2);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, .35),
+    0 4px 0 #0e6b7a,
+    0 10px 20px rgba(0, 0, 0, .25);
+  transition:
+    transform .2s var(--ease-out),
+    box-shadow .2s var(--ease-out),
+    filter .2s ease;
 }
 
+/* Pressed: the button sinks into its base */
+.main-content .contact .btn:active {
+  color: #ffffff;
+  background-color: #17a2b8;
+  transform: translateY(3px);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, .25),
+    0 1px 0 #0e6b7a,
+    0 4px 10px rgba(0, 0, 0, .2);
+}
+
+/* ---------- Hover effects (mouse/trackpad only, so taps don't stick) ---------- */
+
+@media (hover: hover) {
+  .avatar-ring:hover .avatar {
+    transform: scale(1.05) rotate(-2deg);
+  }
+
+  ul li a:hover {
+    color: #ffffff;
+    background: var(--glass-hover);
+    transform: translateY(-3px);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, .3),
+      0 12px 26px rgba(0, 0, 0, .22);
+  }
+
+  ul li a:hover span {
+    transform: scale(1.2) rotate(-8deg);
+  }
+
+  .main-content .contact .btn:hover {
+    color: #ffffff;
+    transform: translateY(-2px);
+    filter: brightness(1.08);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, .4),
+      0 6px 0 #0e6b7a,
+      0 16px 28px rgba(0, 0, 0, .28);
+  }
+
+  .main-content .contact .btn:hover:active {
+    transform: translateY(3px);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, .25),
+      0 1px 0 #0e6b7a,
+      0 4px 10px rgba(0, 0, 0, .2);
+  }
+
+  .main-content .qrcode:hover img {
+    transform: translateY(-3px) rotate(-1.5deg);
+  }
+}
+
+/* Keyboard focus */
+ul li a:focus-visible,
+.main-content .contact .btn:focus-visible {
+  outline: 3px solid var(--aqua);
+  outline-offset: 3px;
+}
+
+/* ---------- Layout ---------- */
+
+.main-content {
+  min-height: 82vh;
+  /* Use the small viewport height so mobile browser bars don't push content down */
+  min-height: 82svh;
+}
+
+/* ---------- QR code ---------- */
+
 .main-content .qrcode {
-  margin: 28px 0px 0px 0px;
+  margin: 30px 0px 0px 0px;
 }
 
 .main-content .qrcode img {
   display: block;
-  margin: 0px auto 8px auto;
-  border-radius: 8px;
-  box-shadow: 0 .125rem .25rem rgba(0, 0, 0, .075);
+  margin: 0px auto 10px auto;
+  padding: 6px;
+  background: #ffffff;
+  border-radius: 14px;
+  box-shadow:
+    0 0 0 6px var(--glass),
+    0 12px 28px rgba(0, 0, 0, .25);
+  transition: transform .4s var(--ease-spring);
 }
 
-/* Keep Bootstrap 4's teal info button with white text */
-.main-content .btn-info {
-  --bs-btn-color: #ffffff;
-  --bs-btn-bg: #17a2b8;
-  --bs-btn-border-color: #17a2b8;
-  --bs-btn-hover-color: #ffffff;
-  --bs-btn-hover-bg: #138496;
-  --bs-btn-hover-border-color: #117a8b;
-  --bs-btn-active-color: #ffffff;
-  --bs-btn-active-bg: #117a8b;
-  --bs-btn-active-border-color: #10707f;
+.main-content .qrcode figcaption {
+  opacity: .85;
+}
+
+/* ---------- Footer ---------- */
+
+hr {
+  border-color: rgba(255, 255, 255, .6);
+}
+
+/* ---------- Reduced motion ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .reveal {
+    opacity: 1;
+  }
 }

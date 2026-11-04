@@ -5,7 +5,14 @@ A single-page personal website (Linktree-style profile card) served by GitHub Pa
 ## Project details
 
 - `index.html`: the whole page: avatar, name, title, social links list, and contact buttons (WhatsApp, email), plus a footer copyright line. The `<head>` holds the SEO metadata: description, robots, canonical URL, Open Graph, Twitter card, and JSON-LD `Person` data. These use absolute `https://mariomarroquim.github.io/` URLs, so keep them in sync if the title, description, avatar, or social links change.
-- `css/custom.css`: all custom styling (gradient background, Bebas Neue heading font, link list, button widths). It overrides Bootstrap.
+- `css/custom.css`: all custom styling. It overrides Bootstrap and covers:
+  - the gradient background, with drifting color blobs in the fixed `.backdrop` layer
+  - the Bebas Neue heading font
+  - the rotating avatar ring
+  - the staggered `.reveal` entrance (each element's `--i` sets its order)
+  - the frosted-glass link cards and raised 3D contact buttons
+
+  Animations only move or fade elements (`transform` and `opacity`), which keeps them smooth on phones. Hover effects only apply on devices with a mouse or trackpad (`@media (hover: hover)`). All motion is turned off under `prefers-reduced-motion`.
 - `img/avatar.jpg`: the profile photo, and the source of the icons in `img/` (`favicon-32.png`, `apple-touch-icon.png` at 180px for iOS, `icon-192.png` and `icon-512.png` for Android). If the avatar changes, regenerate them at those sizes.
 - `img/qrcode.svg`: a static QR code for `https://mariomarroquim.github.io/`, shown below the contact buttons. It was generated with the Python `segno` library (error correction M, 4-module quiet zone). Regenerate it if the site URL changes.
 - `manifest.webmanifest`: the web app manifest for Android "Add to Home screen" (name, colors, icons).

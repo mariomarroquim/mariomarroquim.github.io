@@ -67,23 +67,33 @@
   </head>
 
   <body>
+    <div class="backdrop" aria-hidden="true">
+      <span class="blob blob-1"></span>
+      <span class="blob blob-2"></span>
+      <span class="blob blob-3"></span>
+    </div>
+
     <div class="container">
       <div class="row main-content">
         <div class="col align-self-center text-center">
-          <p><img class="avatar rounded-circle shadow" src="img/avatar.jpg" width="140" height="140" alt="Mário Marroquim"/></p>
+          <p class="reveal" style="--i: 0">
+            <span class="avatar-ring">
+              <img class="avatar rounded-circle" src="img/avatar.jpg" width="140" height="140" alt="Mário Marroquim"/>
+            </span>
+          </p>
 
-          <h1>Mário Marroquim</h1>
+          <h1 class="reveal" style="--i: 1">Mário Marroquim</h1>
 
-          <p class="fw-bold">Software Engineer</p>
+          <p class="fw-bold subtitle reveal" style="--i: 2">Software Engineer</p>
 
-          <nav aria-label="Profiles">
+          <nav class="reveal" style="--i: 3" aria-label="Profiles">
             <ul>
               <li><a href="https://br.linkedin.com/in/mariomarroquim"><span><i class="fab fa-linkedin-in" aria-hidden="true"></i></span> LinkedIn Profile</a></li>
               <li><a href="https://github.com/mariomarroquim"><span><i class="fab fa-github" aria-hidden="true"></i></span> GitHub Repositories</a></li>
             </ul>
           </nav>
 
-          <p class="contact">
+          <p class="contact reveal" style="--i: 4">
             <a class="btn btn-info" href="https://api.whatsapp.com/send?phone=5586994319696" role="button">
               <i class="fab fa-whatsapp" aria-hidden="true"></i> WhatsApp
             </a>
@@ -93,7 +103,7 @@
             </a>
           </p>
 
-          <figure class="qrcode">
+          <figure class="qrcode reveal" style="--i: 5">
             <img src="img/qrcode.svg" width="120" height="120" alt="QR code linking to https://mariomarroquim.github.io/"/>
             <figcaption class="small">Scan to open this page</figcaption>
           </figure>
