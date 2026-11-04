@@ -9,7 +9,7 @@ A single-page personal website (Linktree-style profile card) served by GitHub Pa
 - `img/avatar.jpg`: used both as the profile photo and as the favicon.
 
 External dependencies come from CDNs, with nothing vendored:
-- Bootstrap 4.5.2 CSS (with an SRI `integrity` hash, so if you change the version you must update the hash too)
+- Bootstrap 5.3.8 CSS from jsDelivr (with an SRI `integrity` hash, so if you change the version you must update the hash too)
 - Google Fonts (Bebas Neue)
 - Font Awesome kit script (icons use `fab fa-*` / `far fa-*` classes)
 
