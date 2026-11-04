@@ -28,7 +28,8 @@ External dependencies come from CDNs, with nothing vendored:
 
 - If the code changes, sync both `AGENTS.md` and `README.md` as well.
 - Don't commit and push changes unless explicitly required.
-- This project only uses the `master` branch; commit and push directly to it.
-- On every deploy (every push to `master`), update both of these in `index.html`:
+- Before commiting, update both of these in `index.html`:
   - **Copyright year:** the year in the footer (`&copy; YYYY Mário Marroquim`) must be the current year.
-  - **Deploy version:** the `<meta name="version">` tag, in the format `YYYY.MM.DD.N`, where `N` counts that day's deploys starting at 1. Its value is repeated in a `?v=` query string on every local CSS, image, and manifest URL. Replace every occurrence (for example, find and replace the old value) so the URLs change and browsers fetch fresh files instead of cached ones. Add `?v=` with the current value to any new local asset reference.
+  - **Deploy version:** the `<meta name="version">` tag, in the format `YYYY.MM.DD.N`, where `N` counts that day's commit starting at 1.
+  - **Asset version:**: Add or update `?v=` (query string) with the updated deploy value at any local asset (CSS, image, etc) reference.
+- This project only uses the `master` branch; commit and push directly to it.
