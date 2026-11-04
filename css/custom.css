@@ -75,6 +75,17 @@ ul li a span {
   padding-bottom: 10px;
 }
 
+.main-content .qrcode {
+  margin: 28px 0px 0px 0px;
+}
+
+.main-content .qrcode img {
+  display: block;
+  margin: 0px auto 8px auto;
+  border-radius: 8px;
+  box-shadow: 0 .125rem .25rem rgba(0, 0, 0, .075);
+}
+
 /* Keep Bootstrap 4's teal info button with white text */
 .main-content .btn-info {
   --bs-btn-color: #ffffff;
