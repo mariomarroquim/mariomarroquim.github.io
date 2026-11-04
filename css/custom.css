@@ -1,20 +1,28 @@
 html {
   min-height: 100%;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
 }
 
 body {
-  padding-top: 30px;
+  /* Keep content clear of notches and home indicators (viewport-fit=cover) */
+  padding-top: max(30px, env(safe-area-inset-top));
+  padding-right: env(safe-area-inset-right);
+  padding-bottom: env(safe-area-inset-bottom);
+  padding-left: env(safe-area-inset-left);
   color: #ffffff;
   background: #3C16D1;
   background: -webkit-radial-gradient(bottom right, #3C16D1, #1FB697);
-  background: -moz-radial-gradient(bottom right, #3C16D1, #1FB697);
-  background: radial-gradient(to top left, #3C16D1, #1FB697);
+  background: radial-gradient(at bottom right, #3C16D1, #1FB697);
   background-repeat: repeat;
   background-size: auto 200%;
+  -webkit-tap-highlight-color: transparent;
 }
 
-img {
+.avatar {
+  width: 140px;
   height: 140px;
+  object-fit: cover;
 }
 
 h1 {
@@ -23,16 +31,15 @@ h1 {
 }
 
 ul {
-  margin: 28px 0px 20px 0px;
+  margin: 18px 0px 20px 0px;
   padding: 0px;
   list-style-type: none;
 }
 
-ul li {
-  padding: 0px 0px 10px 0px;
-}
-
 ul li a {
+  /* At least 44px tall, the minimum comfortable touch target */
+  display: inline-block;
+  padding: 10px 0px;
   color: #ffffff;
   text-decoration: none;
 }
@@ -50,10 +57,22 @@ ul li a span {
 
 .main-content {
   min-height: 82vh;
+  /* Use the small viewport height so mobile browser bars don't push content down */
+  min-height: 82svh;
+}
+
+.main-content .contact {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
 }
 
 .main-content .btn {
-  width: 120px;
+  min-width: 120px;
+  white-space: nowrap;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
 /* Keep Bootstrap 4's teal info button with white text */

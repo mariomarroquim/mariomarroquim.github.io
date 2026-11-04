@@ -2,11 +2,14 @@
 <html lang="en">
   <head>
     <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
     <meta name="description" content="Mário Marroquim, Software Engineer. Find my LinkedIn profile, GitHub repositories, and ways to get in touch."/>
     <meta name="author" content="Mário Marroquim (mariomarroquim@gmail.com)"/>
     <meta name="robots" content="index, follow"/>
     <meta name="theme-color" content="#3C16D1"/>
+    <meta name="color-scheme" content="only light"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="apple-mobile-web-app-title" content="Mário Marroquim"/>
 
     <title>Mário Marroquim | Software Engineer</title>
 
@@ -55,7 +58,10 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap"/>
     <link rel="stylesheet" href="css/custom.css"/>
 
-    <link rel="shortcut icon" href="img/avatar.jpg"/>
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32.png"/>
+    <link rel="icon" type="image/png" sizes="192x192" href="img/icon-192.png"/>
+    <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png"/>
+    <link rel="manifest" href="manifest.webmanifest"/>
 
     <script defer src="https://kit.fontawesome.com/cd3bf799d5.js" crossorigin="anonymous"></script>
   </head>
@@ -64,28 +70,26 @@
     <div class="container">
       <div class="row main-content">
         <div class="col align-self-center text-center">
-          <p><img class="avatar rounded-circle shadow" src="img/avatar.jpg" alt="Mário Marroquim"/></p>
+          <p><img class="avatar rounded-circle shadow" src="img/avatar.jpg" width="140" height="140" alt="Mário Marroquim"/></p>
 
           <h1>Mário Marroquim</h1>
 
           <p class="fw-bold">Software Engineer</p>
 
-           <p>
+          <nav aria-label="Profiles">
             <ul>
-              <li><a href="https://br.linkedin.com/in/mariomarroquim"><span><i class="fab fa-linkedin-in"></i></span> LinkedIn Profile</a></li>
-              <li><a href="https://github.com/mariomarroquim"><span><i class="fab fa-github"></i></span> GitHub Repositories</a></li>
+              <li><a href="https://br.linkedin.com/in/mariomarroquim"><span><i class="fab fa-linkedin-in" aria-hidden="true"></i></span> LinkedIn Profile</a></li>
+              <li><a href="https://github.com/mariomarroquim"><span><i class="fab fa-github" aria-hidden="true"></i></span> GitHub Repositories</a></li>
             </ul>
-          </p>
+          </nav>
 
-          <p>
+          <p class="contact">
             <a class="btn btn-info" href="https://api.whatsapp.com/send?phone=5586994319696" role="button">
-              <i class="fab fa-whatsapp"></i> WhatsApp
+              <i class="fab fa-whatsapp" aria-hidden="true"></i> WhatsApp
             </a>
 
-            &nbsp;&nbsp;
-
             <a class="btn btn-info" href="mailto:mariomarroquim@gmail.com" role="button">
-              <i class="far fa-envelope"></i> Email
+              <i class="far fa-envelope" aria-hidden="true"></i> Email
             </a>
           </p>
         </div>

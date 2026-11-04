@@ -6,7 +6,9 @@ A single-page personal website (Linktree-style profile card) served by GitHub Pa
 
 - `index.html`: the whole page: avatar, name, title, social links list, and contact buttons (WhatsApp, email), plus a footer copyright line. The `<head>` holds the SEO metadata: description, robots, canonical URL, Open Graph, Twitter card, and JSON-LD `Person` data. These use absolute `https://mariomarroquim.github.io/` URLs, so keep them in sync if the title, description, avatar, or social links change.
 - `css/custom.css`: all custom styling (gradient background, Bebas Neue heading font, link list, button widths). It overrides Bootstrap.
-- `img/avatar.jpg`: used both as the profile photo and as the favicon.
+- `img/avatar.jpg`: the profile photo, and the source of the icons in `img/` (`favicon-32.png`, `apple-touch-icon.png` at 180px for iOS, `icon-192.png` and `icon-512.png` for Android). If the avatar changes, regenerate them at those sizes.
+- `manifest.webmanifest`: the web app manifest for Android "Add to Home screen" (name, colors, icons).
+- Mobile: the viewport uses `viewport-fit=cover`, so `body` pads itself with `env(safe-area-inset-*)` to stay clear of notches. Links and buttons are at least 44px tall for touch.
 - `robots.txt` and `sitemap.xml`: let all crawlers in and list the single page URL. Update the sitemap's `<lastmod>` date when the page content changes.
 
 External dependencies come from CDNs, with nothing vendored:

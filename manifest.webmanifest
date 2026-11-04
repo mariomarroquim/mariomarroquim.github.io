@@ -1,0 +1,14 @@
+{
+  "name": "Mário Marroquim",
+  "short_name": "Mário",
+  "description": "Mário Marroquim, Software Engineer.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#3C16D1",
+  "theme_color": "#3C16D1",
+  "icons": [
+    { "src": "img/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "img/icon-512.png", "sizes": "512x512", "type": "image/png" }
+  ]
+}
