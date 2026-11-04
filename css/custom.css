@@ -9,6 +9,8 @@
   --glass-border: rgba(255, 255, 255, .24);
   --ease-out: cubic-bezier(.2, .8, .2, 1);
   --ease-spring: cubic-bezier(.34, 1.56, .64, 1);
+  /* Visible space above and below the contact buttons */
+  --stack-gap: 32px;
 }
 
 html {
@@ -167,7 +169,7 @@ ul {
   flex-direction: column;
   align-items: center;
   gap: 12px;
-  margin: 22px 0px 24px 0px;
+  margin: 22px 0px var(--stack-gap) 0px;
   padding: 0px;
   list-style-type: none;
 }
@@ -216,15 +218,19 @@ ul li a:active {
 /* ---------- Contact buttons (raised 3D) ---------- */
 
 .main-content .contact {
+  /* Same width as the profile links, one button on each side */
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
   gap: 12px;
+  width: 100%;
+  max-width: 300px;
+  margin-right: auto;
+  margin-left: auto;
 }
 
 .main-content .contact .btn {
   position: relative;
-  min-width: 120px;
+  flex: 1 1 0;
+  min-width: 0;
   padding-top: 10px;
   padding-bottom: 10px;
   white-space: nowrap;
@@ -317,7 +323,8 @@ ul li a:focus-visible,
 /* ---------- QR code ---------- */
 
 .main-content .qrcode {
-  margin: 30px 0px 0px 0px;
+  /* Add back the buttons' 4px base and the QR frame's 6px ring, which sit inside the gap */
+  margin: calc(var(--stack-gap) + 10px) 0px 0px 0px;
 }
 
 .main-content .qrcode img {
