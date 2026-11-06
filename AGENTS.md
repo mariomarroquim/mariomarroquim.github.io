@@ -13,5 +13,6 @@ This is a personal website, simplified for the mobile era. Much like the Linktre
 - Before commiting, update both of these in `index.html`:
   - **Copyright year:** the year in the footer (`&copy; YYYY Mário Marroquim`) must be the current year.
   - **Deploy version:** the `<meta name="version">` tag, in the format `YYYY.MM.DD.N`, where `N` counts that day's commit starting at 1.
-  - **Asset version:**: Add or update `?v=` (query string) with the updated deploy version on any local asset (CSS, image, etc) reference.
+  - **Asset version:** Add or update `?v=` (query string) with the updated deploy version on any local asset (CSS, image, etc) reference.
+  - **Sitemap version:** Update the lastmod tab with the current day in the format `YYYY-MM-DD`.
 - This project only uses the `master` branch; commit and push directly to it.
