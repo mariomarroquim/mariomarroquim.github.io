@@ -10,9 +10,9 @@ This is a personal website, simplified for the mobile era. Much like the Linktre
 
 - If the code changes, sync both `AGENTS.md` and `README.md` as well.
 - Don't commit and push changes unless explicitly required.
-- Before commiting, update all these in `index.html`:
-  - **Copyright year:** The footer note `&copy; YYYY Mário Marroquim` must contain current year.
-  - **Deploy version:** The header tag `<meta name="version">YYYY.MM.DD.N</meta>` must contain the current day and a count of this day's commits starting at 1.
-  - **Asset version:** The `?v=` (query string) on any local asset (CSS, image, etc) references must contain the new deploy version.
-  - **Sitemap version:** The `<lastmod>YYYY-MM-DD</lastmod>` tab must contain the current day.
+- Before commiting, update all these:
+  - **Copyright year:** The footer note `&copy; YYYY Mário Marroquim` must contain the current year.
+  - **Deploy version:** The header tag `<meta name="version">YYYY.MM.DD.N</meta>` must contain the current day and a count of today's commits.
+  - **Asset version:** The `?v=` (add if missing) on any local asset (CSS, image, etc) references must contain the new deploy version.
+  - **Sitemap version:** The tag `<lastmod>YYYY-MM-DD</lastmod>` must contain the current day.
 - This project only uses the `master` branch; commit and push directly to it.
