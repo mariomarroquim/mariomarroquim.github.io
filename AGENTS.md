@@ -1,10 +1,11 @@
 # Personal website
 
-A single-page personal website (Linktree-style profile card) served by GitHub Pages from the `main` branch at `mariomarroquim.github.io`.
+A single-page personal website (Linktree-style) served by GitHub Pages from the `main` branch at `mariomarroquim.github.io`.
 
 ## Project details
 
-This is a personal website, simplified for the mobile era. Much like the Linktree ones. Pushing to `main` deploys it. There is no build step, package manager, linter, or test suite. It's plain static HTML and CSS.
+This is a personal website, simplified for the mobile era. Much like the Linktree ones. Pushing to `main` deploys it.
+There is no build step, package manager, linter, or test suite. It's plain static HTML and CSS.
 
 ## Conventions
 
@@ -15,4 +16,4 @@ This is a personal website, simplified for the mobile era. Much like the Linktre
   - **Deploy version:** The header tag `<meta name="version" content="YYYY.MM.DD.N"/>` must contain the current day and a count of today's commits.
   - **Asset version:** The `?v=` (add if missing) on any local asset (CSS, image, etc) references must contain the new deploy version.
   - **Sitemap version:** The tag `<lastmod>YYYY-MM-DD</lastmod>` must contain the current day.
-- This project only uses the `main` branch; commit and push directly to it.
+- This project only uses the `main` branch; commit and push to it when required.
