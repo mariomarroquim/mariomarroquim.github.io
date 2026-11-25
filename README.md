@@ -12,4 +12,4 @@ python3 -m http.server 8000
 
 ## Support
 
-You can contact me at mariomarroquim@gmail.com.
+You can contact me at [mariomarroquim@gmail.com](mailto:mariomarroquim@gmail.com).
